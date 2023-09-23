@@ -5,15 +5,13 @@ import (
 
 	"github.com/mrzalr/cashflo/internal/server"
 	"github.com/mrzalr/cashflo/pkg/db/mysql"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal(err)
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
 	db, err := mysql.New()
 	if err != nil {
