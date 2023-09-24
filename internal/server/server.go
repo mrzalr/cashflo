@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 )
@@ -26,6 +27,7 @@ func New(db *sql.DB) *server {
 func (s *server) Run() error {
 	s.app.Use(recover.New())
 	s.app.Use(logger.New())
+	s.app.Use(cors.New(cors.ConfigDefault))
 
 	s.MapRoutes()
 
