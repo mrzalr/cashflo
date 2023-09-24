@@ -24,7 +24,7 @@ func (r *repository) GetAllTransactions(date time.Time) ([]models.TransactionDet
 	INNER JOIN tbluser u ON t.user_id = u.id
 	INNER JOIN tblcategory c ON t.category_id = c.id
 	WHERE created_at >= ?
-	ORDER BY created_at`
+	ORDER BY created_at DESC`
 
 	rows, err := r.db.Query(query, date)
 	if err != nil {
